@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { User } from '../app/types';
 import { getUsers } from '@/app/lib/service';
 import Loader from '../app/components/Loader';
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps, Metadata } from 'next';
 import '../app/globals.css';
 import Head from 'next/head';
 
@@ -50,6 +50,7 @@ export default function Users({ users = [] }: PageProps) {
         <>
             <Head>
                 <title>Users display</title>
+                <meta name='description' content='Users display' />
             </Head>
             <main
                 className={`flex min-h-screen flex-col items-center p-4 ${inter.className} bg-white`}>
