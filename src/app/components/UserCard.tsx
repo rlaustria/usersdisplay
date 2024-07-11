@@ -17,6 +17,7 @@ export default function UserCard({ user }: Props) {
                     decoding='async'
                     width={56}
                     height={56}
+                    style={{ minHeight: 56 }}
                 />
                 <div className='flex-auto'>
                     <div className='text-base text-slate-900 font-semibold dark:text-slate-300'>
