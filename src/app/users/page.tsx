@@ -51,7 +51,7 @@ export default function Users() {
                     {isLoading && <Loader />}
 
                     {/* Load more button */}
-                    <div className='flex justify-center bg-gradient-to-t from-white pt-8 pb-8 pointer-events-none transition-opacity duration-300 opacity-100'>
+                    <div className='inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-white pt-8 pb-8 pointer-events-none sticky transition-opacity duration-300 opacity-100'>
                         <button
                             type='button'
                             onClick={() => setPage((state) => state + 1)}
