@@ -56,7 +56,7 @@ export default function Users() {
                             type='button'
                             onClick={() => setPage((state) => state + 1)}
                             disabled={isLoading || page == maxPage}
-                            className='relative bg-teal-600 hover:bg-teal-500 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 text-sm text-white font-semibold h-12 px-6 rounded-lg flex items-center dark:bg-slate-700 dark:hover:bg-slate-600 transition-transform pointer-events-auto disabled:bg-teal-50 disabled:text-slate-500 disabled:border-slate-200'>
+                            className='relative bg-teal-800 hover:bg-teal-500 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 text-sm text-white font-semibold h-12 px-6 rounded-lg flex items-center dark:bg-slate-700 dark:hover:bg-slate-600 transition-transform pointer-events-auto disabled:bg-teal-50 disabled:text-slate-500 disabled:border-slate-200'>
                             Load more
                         </button>
                     </div>
