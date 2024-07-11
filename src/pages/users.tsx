@@ -1,12 +1,13 @@
 import { Inter } from 'next/font/google';
 import UserCard from '../app/components/UserCard';
 import PageHeader from '../app/components/PageHeader';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { User } from '../app/types';
 import { getUsers } from '@/app/lib/service';
 import Loader from '../app/components/Loader';
 import { GetServerSideProps } from 'next';
 import '../app/globals.css';
+import Head from 'next/head';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -47,6 +48,9 @@ export default function Users({ users = [] }: PageProps) {
 
     return (
         <>
+            <Head>
+                <title>Users display</title>
+            </Head>
             <main
                 className={`flex min-h-screen flex-col items-center p-4 ${inter.className} bg-white`}>
                 {/* Page description */}
