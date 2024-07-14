@@ -13,22 +13,27 @@ const inter = Inter({ subsets: ['latin'] });
 
 type PageProps = {
     users: User[];
+    error: boolean;
 };
 
 export const getServerSideProps = (async () => {
-    const res = await getUsers(1);
-    const users: User[] = await res.data.data;
-    // Pass data to the page via props
-    return { props: { users } };
-}) satisfies GetServerSideProps<{ users: User[] }>;
+    try {
+        const res = await getUsers(1);
+        const users: User[] = await res.data.data;
+        // Pass data to the page via props
+        return { props: { users, error: false } };
+    } catch {
+        return { props: { users: [], error: true } };
+    }
+}) satisfies GetServerSideProps<PageProps>;
 
-export default function Users({ users = [] }: PageProps) {
+export default function Users({ users, error }: PageProps) {
     // component states
     const [page, setPage] = useState(1);
     const [maxPage, setMaxPage] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
-    const [currentUsers, setUsers] = useState<User[]>([]);
-    const [isError, setIsError] = useState(false);
+    const [currentUsers, setUsers] = useState<User[]>(users);
+    const [isError, setIsError] = useState(error);
 
     // user load
 
@@ -65,9 +70,6 @@ export default function Users({ users = [] }: PageProps) {
 
                     {!isError && (
                         <div className='grid grid-cols-1 gap-4 lg:gap-6 sm:grid-cols-2 lg:grid-cols-2 max-h-full overflow-auto'>
-                            {users.map((user) => (
-                                <UserCard user={user} key={user.id} />
-                            ))}
                             {currentUsers.map((user) => (
                                 <UserCard user={user} key={user.id} />
                             ))}
